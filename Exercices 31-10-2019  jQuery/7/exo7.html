@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  <form action="https://afpa.fr" onsubmit="return valide()">
+  <form action="https://afpa.fr" id="form1">
     <label>Saisissez le texte puis pressez le bouton 'Contrôle'</label>
     <input id="texte" placeholder="deux mots minimum"></input>
     <button id="bouton" type="submit">Contrôler</button>
@@ -17,17 +17,31 @@
 </html>
 
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
+  $(function () {
+      
+    $("#form1").submit(function(event){
+        console.log($("#texte").val());
+      if ($("#texte").val().length < 2) {
+        alert('La chaîne doit comporter au moins 2 caractères.');
+        event.preventDefault();
+      } else {
+        alert('Vous avez saisi: ' + $("#texte").val());
+      }
+    });
+});
 
-  function valide() {
-    var entree = texte.value;
-    if (entree.length < 2) {
-      alert('La chaîne doit comporter au moins 2 caractères.');
-      return false;
-    } else {
-      alert('Vous avez saisi: ' + entree);
-    }
 
-  }
+
+  // function valide() {
+  //   var entree = texte.value; //Pourquoi ?
+  //   if (entree.length < 2) {
+  //     alert('La chaîne doit comporter au moins 2 caractères.');
+  //     return false;
+  //   } else {
+  //     alert('Vous avez saisi: ' + entree);
+  //   }
+
+  // }
 </script>
