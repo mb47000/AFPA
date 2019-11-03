@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+    <h1>Première page</h1>
+    <label >Nombre SVP</label>
+    <input type="number" id="i_number">
+</div>
+<br />
+<div>
+    <label  >Un texte SVP</label>
+    <input type="text" id="i_text">
+</div>  
+<br />
+    <button onclick="" id="btn">Envoyer du texte dans une autre page</button>
+
+    <script>
+        document.getElementById('btn').addEventListener("click", maFonction, false);
+        
+        function maFonction() {
+            var nombre = document.getElementById('i_number').value;
+            var texte1 = document.getElementById('i_text').value;
+            var param_tempo = "Texte=" + texte1 + "&Nombre=" + nombre;
+            var page_tempo = "exo8_2.html";
+            var url_tempo = page_tempo + "?" + param_tempo;
+            location.href = encodeURI(url_tempo);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Les liens en HTML</title>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <form action="https://afpa.fr" onsubmit="return valide()">
+    <label>Saisissez le texte puis pressez le bouton 'Contrôle'</label>
+    <input id="texte" placeholder="deux mots minimum"></input>
+    <button id="bouton" type="submit">Contrôler</button>
+  </form>
+</body>
+
+</html>
+
+
+
+<script>
+
+  function valide() {
+    var entree = texte.value;
+    if (entree.length < 2) {
+      alert('La chaîne doit comporter au moins 2 caractères.');
+      return false;
+    } else {
+      alert('Vous avez saisi: ' + entree);
+    }
+
+  }
+</script>
