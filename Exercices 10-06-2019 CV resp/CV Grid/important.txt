@@ -1,0 +1,3 @@
+Les deux fichier html ont besoin du dossier fontawesome-free-5.11.2-web (https://fontawesome.com/download) pour afficher leur icones respectives.
+"De A à Z" : journée complète = rien ne vas en responsive.
+"Avec css Mathieu" : 5mn = tout marche mais je n'ai aucune idée de pourquoi. ^^

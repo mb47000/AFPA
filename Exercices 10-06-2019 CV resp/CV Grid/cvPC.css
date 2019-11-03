@@ -1,0 +1,140 @@
+* {
+        box-sizing: border-box;
+    }
+@media screen {
+    body {
+        margin: .75em 1.14285714285714%;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    body header {
+        font-size: 2em;
+        font-weight: bold;
+        color: blue;
+    }
+    h1 {
+        margin: auto;
+    }
+    #formation>h2,
+    #expe>h2 {
+        font-size: 2em;
+        /* 32 px */
+        margin: 0.625em 0px;
+        /* 20px/32px */
+        padding: 0.70821529745042%;
+        /*5px/706px */
+        font-weight: bold;
+        color: white;
+        background-color: blue;
+    }
+    #civil p {
+        margin: 0.3125em 0px;
+        /* 5px/16px 0px; */
+    }
+    /* diplomes */
+    #formation table tr {
+        text-align: left;
+        font-size: 1.2em;
+    }
+    /* espaces entre 2 formations */
+    #formation table tr:nth-child(2n) td {
+        padding-bottom: 1em;
+        /* 16px */
+    }
+    /* énum en expériences prof */
+    #expe h3 {
+        font-size: 1.2em;
+        background-color: #11b7ee;
+        font-weight: normal;
+    }
+    /* séparation en 2 parties de l'expé prof */
+    #expe h3 span:first-of-type {
+        display: inline-block;
+        /* nécessaire pour dimensionner */
+        word-wrap: break-word;
+        width: 40%;
+        /* espacer les 2 parties */
+    }
+    #expe ul {
+        margin-left: 13.33333333333333%;
+        /*100px/750px;*/
+    }
+    /* titres et enum en divers */
+    #divers>h3 {
+        background-color: white;
+        color: blue;
+        padding: 2.13675213675214%;
+        /*5px/234px */
+    }
+    #divers ul {
+        list-style: none;
+        padding-left: 0px;
+    }
+}
+@media screen and (min-width:400px){
+    #bigbox {
+        margin: auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 75% 25%;
+        grid-template-rows: repeat(10, 7.32em);
+        grid-column-gap: 1%;
+    }
+    header {
+        grid-row: 1;
+        grid-column: 1;
+    }
+    #civil {
+        grid-row: 3 / span 2;
+        grid-column: 2;
+        background-color: blue;
+        color:white;
+        padding: .5em 0.77972709551657% ; /*8px/16px 8px/1026px;*/
+    }
+    }
+    main {
+        grid-row: 2 / span 6;
+    }
+    #divers {
+        grid-row: span 3;
+        grid-column: 2;
+        background-color: blue;
+        color:white;
+        padding: .5em 0.77972709551657% ; /*8px/16px 8px/1026px;*/
+    }
+    .img {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        background-color: blue;
+    }
+    .img img {
+        width: 80%;
+        display: block;
+        margin:auto;
+        border: 3px solid rgb(4, 209, 199);
+        border-radius: 5px;
+        margin-top: 2%;
+        justify-items: center;
+        max-height: 199.72px;
+        max-width: 199.72px;
+    }
+    #expe h3>i, #divers h3>i {
+        display:none;
+        }
+    
+@media screen and (min-width:1050px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width:640px) and (max-width:1049px){
+    body{
+        font-size:14px;
+    }
+}
+@media screen and (min-width:400px) and (max-width:639px){
+    body{
+        font-size:12px;
+    }
+}
+

@@ -1,0 +1,103 @@
+@media screen{
+    * {
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 16px;
+    }
+    body {
+        min-width: 200px;
+        background-image: url('image/backg.jpg');
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    img {
+        max-width: 100%;
+    }
+    
+    .wrapper {
+        width: 95%;
+        margin: 0.5em auto 0.5em auto;
+    }
+    header>h1 {
+        margin: auto;
+        text-align: center;   
+    }
+    nav{
+        margin-top: 1%;
+        width: 100%;
+        box-shadow: 15px 15px 15px black;
+        background-color: rgba(107, 107, 107, 0.7);
+        border: 1px outset grey;
+    }
+    nav>ul {
+        margin: auto;
+        text-align: center;
+    }
+    nav>ul li{
+        text-align: center;
+        display: inline-block;
+        width: 30%;
+        color: blue;
+        background-color: rgba(255, 255, 255, 0.7);
+        margin:  1%;
+        box-shadow: 5px 5px 5px black;
+        font-weight: bold;
+        border: 1px outset grey;
+    }
+    nav ul li:hover{
+        cursor: pointer;
+    }
+    .active {
+        font-style : italic;
+        border: 2px outset blue;
+    }
+    #gallery {
+        float: left;
+        width: 33%;
+        height: 47em;
+        overflow-y: auto;
+        background-color: rgba(107, 107, 107, 0.7);
+        margin-top: 1%;
+        border: 1px outset grey;
+        box-shadow: 15px 15px 15px black;
+    }
+    #gallery a{
+        display: inline-block;
+        width: 40%;
+        max-width: 160px;
+        margin: 2.5%;
+        box-shadow: 15px 15px 15px black;
+        border: 3px outset grey;
+    }
+    #gallery a:hover {
+        transition: all .3s ease-in-out;
+        transform: scale(.9) rotate(-5deg)
+    }
+    main {
+        float: right;
+        width: 66%;
+        height: 47em;
+        text-align: center;
+        box-shadow: 15px 15px 15px black;
+        background-color: rgba(107, 107, 107, 0.7);
+        border: 1px outset grey;
+        margin-top: 1%;
+        color: blue;
+    }
+    #grandeImage {
+        max-height: 35em;
+    }
+    #textesImage {
+        max-width: 36.25em;
+        margin : auto ;
+        color: black;
+        font-weight: bold;
+    }
+    .justif {
+        text-align: justify;
+    }
+    #titreGrandeImage{
+        font-size: 1.5em;
+    }
+}

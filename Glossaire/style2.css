@@ -1,0 +1,81 @@
+body {
+    background-image: linear-gradient(to right, #95EAFC, #D397FF);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid rgb(61, 28, 204);
+    background-image: linear-gradient(to right, #D397FF, #95EAFC);
+}
+
+.th th {
+    border: 3px solid rgb(61, 28, 204);
+    width: 15%;
+    font-family: 'Righteous', cursive;
+    font-size: 40px;
+}
+
+.tr td {
+    border: 2px solid rgb(61, 28, 204);
+    width: 15%;
+    text-align: center;
+    font-family: 'Fira Sans', sans-serif;
+    padding: 10px;
+}
+
+.thm {
+    font-size: 20px;
+}
+
+.cdp {
+    color: red;
+}
+
+.orga {
+    color: blue;
+}
+
+.log {
+    color: green;
+}
+
+.int {
+    color: rgb(212, 180, 34);
+}
+
+.funct {
+    color: rgb(145, 11, 127)
+}
+
+.elem {
+    color: rgb(211, 17, 169)
+}
+
+.mdt {
+    color: rgb(14, 66, 17)
+}
+
+.bdd {
+    color: rgb(125, 17, 226);
+}
+
+.frmw {
+    color: rgb(11, 156, 42);
+}
+
+.sec {
+    color: rgb(136, 91, 37);
+}
+
+.lang {
+    color: rgb(128, 10, 10)
+}
+
+.form {
+    color: rgb(90, 51, 7);
+}
+
+.pdt {
+    color: rgb(76, 57, 143);
+}

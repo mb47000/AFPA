@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>page2</title>
+</head>
+
+<body>
+    <p>Vous avez saisi ces données</p>
+    <p id="p1"></p>
+    <p id="p2"></p>
+
+    <script>
+       var y = location.href.substring(location.href.indexOf("T"));
+       var a = y.split("&");
+       var b = a[0].split("=");
+       var c = a[1].split("=");
+       document.getElementById('p1').innerHTML = b[0] + " : " + b[1];
+       document.getElementById('p2').innerHTML = c[0] + " : " + c[1];
+
+       console.log(a);
+       
+        // var highlander = location.href;
+        // console.log(y);
+        // var a = highlander.split('?');
+        // var b = a[1];
+        // var c = b.split('&');
+        // var d = c[0].split("=");
+        // var e = c[1].split("=");
+        // document.getElementById('p1').innerHTML = d[0] + " : " + d[1];
+        // document.getElementById('p2').innerHTML = e[0] + " : " + e[1];
+    </script>
+</body>
+
+</html>

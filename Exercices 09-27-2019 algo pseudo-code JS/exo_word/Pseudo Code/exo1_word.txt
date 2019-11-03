@@ -1,0 +1,22 @@
+﻿//Fonction qui calcule combien de moins de moins 20ans sont présent dans un tableau qui comporte 20 valeur
+fonction calcule_moins_20 (entrée liste_age = nombre, sortie = nombre_jeunes)
+
+Debut test
+Saisir liste_age
+Afficher nombre_jeunes
+
+Variable 
+	nombre_jeunes
+	liste_age 
+Initialiser les variables
+	nombre_jeunes = 0
+	liste_age = [liste de 20 valeurs]
+
+Pour[i=0 si i<20 i est incrémenté de 1]
+	si(liste_age[i] < 20)
+        	nombre_jeunes += 1
+        Fin Si
+Suivant
+
+Retourne nombre_jeunes
+FIN

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .green {
+            background-color: green;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Additionner</legend>
+        <label> entrer votre 1er nombre</label>
+        <input type="text" id="nombre1">
+        <label> entrer votre 2eme nombre</label>
+        <input type="text" id="nombre2">
+        <p>resultat :<p><span id="resultat"></span><br /><br />
+                <input type="button" value="calcule" id="calc">
+    </fieldset>
+    <br /><br /><br />
+    <fieldset>
+        <legend>Concatener nombre</legend>
+        <label> entrer votre 1er nombre</label>
+        <input type="text" id="nb1">
+        <label> entrer votre 2eme nombre</label>
+        <input type="text" id="nb2">
+        <p>concatenation<p><span id="concat2"></span><br /><br />
+                <input type="button" value="concatenation" id="conc1">
+    </fieldset>
+    <br /><br />
+    <fieldset>
+        <legend>Concatener Mots</legend>
+        <label> entrer votre 1er mot</label>
+        <input type="text" id="mot1">
+        <label> entrer votre 2eme mot</label>
+        <input type="text" id="mot2">
+        <p>concatenation<p><span id="concat1"></span><br /><br />
+                <input type="button" value="concatenation" id="conc">
+    </fieldset>
+    <br /><br />
+
+    <fieldset>
+        <legend>button color</legend>
+        <p id="text1">Bonjour!</p>
+        <button id="bluebt">bleu</button>
+        <button id="greenbt">vert</button>
+        <button id="txtbtn">Text</button>
+        <input type="text" placeholder="test" id="testtxt"> <button id="testbtn">test</button>
+    </fieldset>
+    <br /><br />
+
+    <fieldset>
+        <legend>Inject text</legend>
+        <label for="">Saisie</label>
+        <input type="text" id="mm1">
+        <label for="">result</label>
+        <input type="text" id="mm2">
+        <button id="validetext">valider</button>
+    </fieldset>
+    <script>
+
+        calc.addEventListener('click', calculef, false);
+
+        function calculef() {
+            var n1 = parseInt(document.getElementById("nombre1").value);
+            var n2 = parseInt(document.getElementById("nombre2").value);
+            var result1 = n1 + n2;
+            document.getElementById("resultat").innerHTML = result1;
+
+        }
+
+
+        conc1.addEventListener('click', concaten2, false);
+        function concaten2() {
+            var m3 = document.getElementById("nb1").value;
+            var m4 = document.getElementById("nb2").value;
+            var result3 = m3 + m4;
+            document.getElementById("concat2").innerHTML = result3;
+
+        }
+
+        conc.addEventListener('click', concaten1, false);
+        function concaten1() {
+            var m1 = document.getElementById("mot1").value;
+            var m2 = document.getElementById("mot2").value;
+            var result2 = m1 + " " + m2;
+            document.getElementById("concat1").innerHTML = result2;
+
+        }
+
+        validetext.addEventListener('click', transf, false);
+        function transf() {
+            var t1 = document.getElementById("mm1").value;
+            console.log(t1);
+            document.getElementById("mm2").value = t1;
+
+        }
+
+        bluebt.addEventListener('click', blue, false);
+        function blue() {
+            testtxt.classList.remove('green');
+            testbtn.classList.remove('green');
+            testbtn.classList.add('blue');
+            testtxt.classList.add('blue');
+        }
+        greenbt.addEventListener('click', green, false);
+        function green() {
+            testtxt.setAttribute("class", "");
+            testbtn.setAttribute("class", "");
+            testbtn.classList.add('green');
+            testtxt.classList.add('green');
+        }
+        txtbtn.addEventListener('click', txtchange, false);
+        function txtchange() {
+            testtxt.value = "je change!";
+            testbtn.innerHTML = "je change aussi!";
+        }
+    </script>
+</body>
+
+</html>

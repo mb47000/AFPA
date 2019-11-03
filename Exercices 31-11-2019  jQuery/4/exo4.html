@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="" id="semaine">Semaine</label> <input value="semaine" type="radio" name="ok" id="semaineradio">
+    <label for="" id="weekend">Week-end</label> <input value="weekend" type="radio" name="ok" id="weekendradio">
+    <button type="button" id="btn">choix</button>
+    <input type="text" id="inputxt" value="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+
+
+
+$('#btn').click(function(){
+    $('#inputxt').val($('input[name=ok]:checked').attr('id'));
+    });
+
+
+
+        //     $('#btn').click(function(){
+        //         if($('#semaineradio').prop('checked') == true){
+        //             $('#inputxt').val(($('#semaine').text()));
+        //         } else if($('#weekendradio').prop('checked') == true){
+        //             $('#inputxt').val(($('#weekend').text()));
+        //         }
+        //     })
+        // (function () {
+        // var boutton = document.getElementById("btn");
+        // boutton.addEventListener("click", 
+        //                         function checked () {                    
+        //                             var radio1 = document.getElementById("semaineradio");
+        //                             var radio2 = document.getElementById("weekendradio");        
+        //                             var valuesem = document.getElementById("semaine");
+        //                             var valueweek = document.getElementById("weekend");
+        //                             var input_txt = document.getElementById("inputxt");
+        
+        //                             if( radio1.checked == true) {
+        //                                 input_txt.value = valuesem.innerHTML;
+        //                             } else if( radio2.checked == true) {
+        //                                 input_txt.value = valueweek.innerHTML;
+        //                             }
+        //                         }
+        //                         , false);
+        //                     }())
+        
+        
+    </script>
+</body>
+
+</html>

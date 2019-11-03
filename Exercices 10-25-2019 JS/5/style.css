@@ -1,0 +1,7 @@
+#postIt {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background-color: yellow;
+    padding: 50px;
+}

@@ -1,0 +1,24 @@
+var chaîne_donnée
+var term_donnée
+var resultat
+
+fonction trouver_n_occurences
+    lire chaîne_donnée
+    lire term_donnée
+    
+
+    pour[i=0 si chaine_de_caractère[i] est différent de term_donnée i++]
+        si chaine_de_caractère[i] + chaine_de_caractère[i+1] est égal à l_successives
+            compteur_occurences += 1
+    retourner compteur_occurences
+fin de la fonction
+
+DEBUT
+    entrée chaîne_donnée
+    entrée term_donnée
+    entrée l_successives
+
+    appel fonction trouver_n_occurences
+    affectation de compteur_occurences à resultat
+    afficher resultat
+FIN

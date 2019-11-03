@@ -1,0 +1,18 @@
+﻿var resultat
+var nombre_de_caractere_trouve
+var saisie_phrase
+
+fonction retour_nombre_caractere
+    lire saisie_phrase
+    nombre_de_caractere_trouve = trouver le nombre de caractere de saisie_phrase
+    nombre_de_caractere_trouve = retirer de la valeur le '.'
+    retourner la valeur nombre_de_caractere_trouve
+fin de la fonction
+
+DEBUT
+    saisie_phrase = entrée chaine_de_caractère
+    appel fonction retour_nombre_caractère
+    affectation de nombre_de_caractere_trouve à resultat
+    afficher resultat
+FIN
+    

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <fieldset style="background-color: blue; color: white;">
+        <legend>jQuery</legend>
+        <label for="">choix 1</label>
+        <input type="radio" name="ok" id="1" value="numero 1">
+        <label for="">choix 2</label>
+        <input type="radio" name="ok" id="2" value="numero 2">
+        <label for="">choix 3</label>
+        <input type="radio" name="ok" id="3" value="numero 3">
+        <label for="">choix 4</label>
+        <input type="radio" name="ok" id="4" value="numero 4">
+        <input type="button" value="checked" id="btn">
+    </fieldset>
+    <div style="background-color: turquoise; height: 100px; width: 100px; text-align: center; margin: auto;">
+        hello <p>world</p>
+    </div>
+</body>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+    $("#btn").on("click", function (event) {        
+        $("div").children().append('<p>ok<p>').css({"background-color": "white", "color": "red"});
+                $("div").height("1000px");
+                console.log(event)
+    });
+    
+
+</script>
+
+</html>

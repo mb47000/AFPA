@@ -1,0 +1,36 @@
+//Fonction qui transforme une chaine de caractere en tableau
+fontion transforme_chaine_en_tableau (Entrée chaine_de_caracteres = chaine, 
+					Sortie Tableau_Resultat = tableau())
+fonction donner _la_longueur_du_tableau(Entrée tableau_phrase = tableau(), Sortie taille_tableau = entier) \\tableau
+ 
+SALUT.COUCOU.
+
+S	A	L	U	T	.	C	O	U	C	O	U	.
+0	1	2	3	4	5	6	7	8	9	10	11	12
+
+Debut test
+Saisir carfin   .
+Saisir phrase   SALUT.COUCOU.
+Afficher compteur_caracterer('SALUT.COUCOU.', '.') = 11
+
+Debut Fonction compteur_caractere (Entrée phrase=chaine, Entrée carfin=caractere, 
+					Sortie nbcaractere=entier)
+
+Variables
+	compteur_tableau = entier  \\indiquer la position dans le tableau
+	table_temp = tableau()  \\ tableau temporaire pour manipuler les caractères
+	longueur_tableau = entier
+	memo_compteur = entier		\\ garder en memoire la donnée a l utilisateur 
+Initialiser les variables
+	memo_compteur = 0
+	table_temp() = transforme_chaine_en_tableau(phrase)
+	longueur_tableau = donner_la_longueur_du_tableau(table_temp)
+Tantque compteur_tableau <> longueur_tableau - 1
+	Si table_temp(compteur_tableau) <> carfin alors			
+		memo_compteur = memo_compteur + 1							
+	Fin Si
+	compteur_tableau += 1
+Suivant
+
+Retourne memo_compteur
+Fin Fonction

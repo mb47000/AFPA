@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="screen.css">
+        <link rel="stylesheet" href="tablette.css">
+        <link rel="stylesheet" href="smartphone.css">
+    </head>
+    
+    <body>   
+            <audio autoplay>
+                    <source src="videoplayback.mp3" type="audio/mpeg" volume=10>
+            </audio>
+        <div class="wrapper">
+            <header>
+                <h1><span><img src="image/logo.png" alt=""></span></h1>
+            </header>
+                    <nav>
+                        <ul>
+                            <li class="active" onclick="active(this);">Street Fighter 3.3</li>
+                            <li class="" onclick="active(this);">The Last Blade 2</li>
+                            <li class="" onclick="active(this);">Garou: Mark of the Wolves</li>
+                            <li class="" onclick="active(this);">Martial Master</li>
+                            <li class="" onclick="active(this);">KOF 2002</li>
+                            <li class="" onclick="active(this);">Darkstalkers</li>
+                        </ul>
+                    </nav>
+                <aside>
+                    <div id="gallery">
+                        <a onclick="return false;" href=""><img onclick="affiche(this);" src="image/miniature/Akuma.gif" title="Akuma" alt="When playing Akuma, the basic goal is either to use his zoning ability to control your opponent’s options, minimizing the risk of getting hit yourself, or to simply go on total offense and decimate the opponent as quickly as possible, as they can take him out just about as quickly."></a>
+                        <a onclick="return false;" href=""><img onclick="affiche(this);" src="image/miniature/Ken.gif" title="Ken" alt="Ken Masters, the second most famous and played fighting game character, needs little introduction. His best incarnation for most was in 3rd Strike, the only game where more people play him than Ryu. He is one of the best characters in the game, mainly for his highly effective offense on top of his normal Shoto capabilities."></a>
+                        <a onclick="return false;" href=""><img onclick="affiche(this);" src="image/miniature/chunli.gif" title="Chunli" alt="In her most notorious incarnation, Chun-Li is a defensive beast. She mainly relies on punishing opponents with her high speed and range, solid power and 2nd Super Art which can be combo'd into multiple ways."></a>
+                        <a onclick="return false;" href=""><img onclick="affiche(this);" src="image/miniature/makoto.gif" title="Makoto" alt="Makoto is very unique, and still is to this day, as the first female fighting game character to be fairly slow and hard-hitting with just as much stamina as the average males (like Ryu and Ken), whereas all other female fighters before her had always focused on speed and always had notably less."></a>
+                        <a onclick="return false;" href=""><img onclick="affiche(this);" src="image/miniature/zantetsu.gif" title="Zantetsu" alt="Zantetsu is a true ninja, and as time passes and the ninjas begin to die out in wars and the like, Zantetsu has discovered that he is the only ninja left alive. No-one seems to care about ninjas anymore, and Zantetsu is determined to prove their strength."></a>
+                        <a onclick="return false;" href=""><img onclick="affiche(this);" src="image/miniature/gato.gif" title="Gato" alt="Gato has no concerns outside of besting anyone unfortunate enough to cross his path. In his Mark of the Wolves ending, a stranger saves Kain R. Heinlein from the crumbling mansion."></a>
+                    </div>
+                </aside>
+            
+                <main>
+                    <img id="grandeImage" src="image/Akuma.gif" title="" alt="">
+            
+                    <div id="textesImage">
+                        <h2 id="titreGrandeImage">Akuma</h2>
+                        <p id="texteGrandeImage" class="justif">When playing Akuma, the basic goal is either to use his zoning ability to control your opponent’s options, minimizing the risk of getting hit yourself.</p>
+                    </div>
+                </main>
+        </div>
+        <script src="script.js"></script>
+    </body>
+
+</html>

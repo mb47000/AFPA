@@ -1,0 +1,27 @@
+﻿//Fonction qui prend une chaine de caractère et compte combien de fois la lettre demandé se trouve dans cette chaine.
+fonction retour_nombre_caractère_trouvé(entré chaine_de_caractère = chaine, caractère à trouver = chaine
+					sortie compteur_lettre_trouvé  = entier)
+
+DEBUT test
+saisir chaine_de_caractère
+saisir caractère_à_trouver
+compteur_lettre_trouvé
+
+Variable
+chaine_de_caractère = ""
+caractère_à_trouver = ""
+compteur_lettre_trouvé = 0
+
+Initialiser les variables
+chaine_de_caractère = string
+caractère_à_trouver = string
+compteur_lettre_trouvé = 0 
+
+	pour[i=0 si chaine_de_caractère[i] est différent de '.' i++]
+		si chaine_de_caractère[i] est égal a caractère_à_trouver
+		compteur_lettre_trouvé += 1
+        suivant
+	retourner la valeur compteur_lettre_trouvé
+Fin de la fonction
+
+        

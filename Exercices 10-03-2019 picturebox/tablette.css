@@ -1,0 +1,19 @@
+@media screen and (min-width:551px) and (max-width:780px) {
+* {
+font-size: 14px;
+}
+nav {
+    max-height: 90px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+main {
+    width:70%;
+    height: 50em;
+}
+#gallery {
+    width: 27%;
+    height: 50em;
+}
+}

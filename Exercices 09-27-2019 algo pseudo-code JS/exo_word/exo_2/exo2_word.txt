@@ -1,0 +1,41 @@
+//Fonction qui calcule combien de moins de moins 20ans, de 20 40ans et de plus de 40ans sont présent dans un tableau jusqu'a lire une valeur égale ou supérieur à 100
+fonction calcule_moins_20 (entrée liste_age = nombre, sortie = nombre_jeunes)
+
+DEBUT test
+Saisir liste_age
+Afficher moins_de_20
+Afficher entre_20_et_40
+Afficher plus_de_40
+
+Variable
+moins_de_20
+entre_20_et_40
+plus_de_40
+liste_age
+i 
+
+Initialiser les variables
+	moins_de_20 = 0
+	entre_20_et_40 = 0
+	plus_de_40 = 0
+	liste_age = [liste des ages]
+	i = 0
+
+faire
+	si liste_age[i] > 40
+	plus_de_40 += 1
+                
+	sinon si liste_age[i] >=20 et <=40
+	entre_20_et_40 += 1
+                
+        autrement
+        moins_de_20 += 1
+                
+   	incrémente i de 1
+
+tantque(liste_age[i]<100)
+    
+    retourner moins_de_20
+    retourner entre_20_et_40
+    retourner plus_de_40
+FIN
