@@ -1,16 +1,7 @@
-html {
-    height: 100vh;
-}
-
-body {
-    height: 100%;
-}
-
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100%;
+    margin:3%;
 }
 
 .flip-box {
@@ -39,4 +30,8 @@ body {
 
 .flip-box-back {
     transform: rotateY(180deg);
+}
+#code {
+    width: 100%;
+    display: flex;
 }
