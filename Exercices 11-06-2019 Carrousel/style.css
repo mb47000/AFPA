@@ -1,0 +1,7 @@
+#carrou, #button{
+    display: flex;
+    justify-content: center;
+}
+input {
+    margin: 1%;
+}

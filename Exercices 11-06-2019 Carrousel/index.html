@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <div id="carrou"><img src="" id="imgC"></div>
+        <div id="button">
+            <input type="button" value="play" id="play">
+            <input type="button" value="pause" id="pause">
+            <input type="button" value="next" id="next">
+            <input type="button" value="back" id="back">
+            <input type="button" value="repeat">
+            <input type="button" value="random">
+        </div>
+    </main>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        var list = ['image/1.png', 'image/2.png', 'image/3.png', 'image/4.png', 'image/5.png'];
+        var i = 0;
+        $('#imgC').attr("src", list[i]);
+           // function carrousel
+           function time(){
+            if(i == 4) {
+                i=0;
+                $('#imgC').attr("src", list[i]);
+            } else {
+            $('#imgC').attr("src", list[i+=1]);
+            }
+        };
+        
+
+        
+        var timer = setInterval(time, 2000);
+        // bouton pause
+        $('#pause').click(function(){
+            clearInterval(timer);
+        });
+        // bouton play
+        $('#play').click(function(){
+             timer = setInterval(time, 2000);
+        });
+        
+        // bouton next
+        $('#next').click(function () {
+            if(i == 4) {
+                i=0;
+                $('#imgC').attr("src", list[i]);
+            } else {
+            $('#imgC').attr("src", list[i+=1]);
+            }
+        });
+        // bouton back
+        $('#back').click(function () {
+            if(i == 0) {
+                i=4;
+                $('#imgC').attr("src", list[i]);
+            } else {
+            $('#imgC').attr("src", list[i-=1]);
+            }
+        });
+
+    });
+</script>
+
+</html>
