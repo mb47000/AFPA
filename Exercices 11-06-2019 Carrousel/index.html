@@ -17,8 +17,9 @@
             <input type="button" value="pause" id="pause">
             <input type="button" value="next" id="next">
             <input type="button" value="back" id="back">
-            <input type="button" value="repeat">
-            <input type="button" value="random">
+            <input type="button" value="repeat" id="repeat">
+            <input type="button" value="random" id="random">
+            <input type="range" min="1000" max="10000" value="2000" id="speedC"><span id="speedT"></span>
         </div>
     </main>
 </body>
@@ -27,27 +28,64 @@
     $(function () {
         var list = ['image/1.png', 'image/2.png', 'image/3.png', 'image/4.png', 'image/5.png'];
         var i = 0;
+        var speed = $('#speedC').val();
+        var timer = setInterval(time, speed);
+        var rep = false;
+        var rand = false;
+        
+        $('#speedT').html($('#speedC').val());
         $('#imgC').attr("src", list[i]);
            // function carrousel
-           function time(){
-            if(i == 4) {
-                i=0;
+            function time(){
+                $('#speedT').html($('#speedC').val());
+            if (rand == true){
+                i = Math.floor(Math.random() * 5);
                 $('#imgC').attr("src", list[i]);
+            } else if(i == 4 && rep == true) {              
+                i=0;
+                $('#imgC').attr("src", list[i]);            
+            } else if (i == 4 && rep == false) {
+                i=0;
+                $('#imgC').attr("src", list[i]);  
+                clearInterval(timer);
             } else {
-            $('#imgC').attr("src", list[i+=1]);
+                $('#imgC').attr("src", list[i+=1]);
+                clearInterval(timer);
+                speed = $('#speedC').val();
+                timer = setInterval(time, speed);
             }
+            
         };
         
+        //bouton random
+        $('#random').click(function(){
+            if(rand == false){
+                rand = true;
+                $(this).css('border', '2px solid red');
+            } else {
+                rand = false;
+                $(this).css('border', '');
+            }
+        });
 
-        
-        var timer = setInterval(time, 2000);
+        //bouton repeat
+        $('#repeat').click(function(){
+            if(rep == false){
+                rep = true;
+                $(this).css('border', '2px solid red');
+            } else {
+                rep = false;
+                $(this).css('border', '');
+            }
+        });
         // bouton pause
         $('#pause').click(function(){
             clearInterval(timer);
         });
         // bouton play
         $('#play').click(function(){
-             timer = setInterval(time, 2000);
+            speed = $('#speedC').val();
+            timer = setInterval(time, speed);
         });
         
         // bouton next
