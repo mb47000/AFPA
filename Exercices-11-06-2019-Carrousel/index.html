@@ -13,17 +13,21 @@
     <main>
         <div id="carrou"><img src="" id="imgC"></div>
         <div id="button">
-            <input type="button" value="play" id="play">
+            <input type="button" value="play" id="play" disabled>
             <input type="button" value="pause" id="pause">
-            <input type="button" value="next" id="next">
-            <input type="button" value="back" id="back">
+            <input type="button" value="back" id="back" disabled>
+            <input type="button" value="next" id="next" disabled>
             <input type="button" value="repeat" id="repeat">
             <input type="button" value="random" id="random">
             <input type="range" min="1000" max="10000" value="2000" id="speedC"><span id="speedT"></span>
         </div>
     </main>
-    <script src="http://gist-it.appspot.com/github/mb47000/AFPA-Exercices/blob/master/Exercices%2011-06-2019%20Carrousel/index.html"></script>
-    <script src="http://gist-it.appspot.com/github/mb47000/AFPA-Exercices/blob/master/Exercices%2011-06-2019%20Carrousel/style.css"></script>
+    <script
+        src="http://gist-it.appspot.com/github/mb47000/AFPA-Exercices/blob/index-exo/Exercices-11-06-2019-Carrousel/index.html">
+    </script>
+    <script
+        src="http://gist-it.appspot.com/github/mb47000/AFPA-Exercices/blob/index-exo/Exercices-11-06-2019-Carrousel/style.css">
+    </script>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
@@ -34,78 +38,101 @@
         var timer = setInterval(time, speed);
         var rep = false;
         var rand = false;
-        
         $('#speedT').html($('#speedC').val());
         $('#imgC').attr("src", list[i]);
-           // function carrousel
-            function time(){
-                $('#speedT').html($('#speedC').val());
-            if (rand == true){
+
+
+
+
+
+        // function carrousel
+        function time() {
+            $('#speedT').html($('#speedC').val());
+            if (rand == true) {
                 i = Math.floor(Math.random() * 5);
                 $('#imgC').attr("src", list[i]);
-            } else if(i == 4 && rep == true) {              
-                i=0;
-                $('#imgC').attr("src", list[i]);            
+            } else if (i == 4 && rep == true) {
+                i = 0;
+                $('#imgC').attr("src", list[i]);
             } else if (i == 4 && rep == false) {
-                i=0;
-                $('#imgC').attr("src", list[i]);  
+                i = 0;
+                $('#imgC').attr("src", list[i]);
+                $('#play').prop("disabled", false);
+                $('#pause').prop("disabled", true);
                 clearInterval(timer);
             } else {
-                $('#imgC').attr("src", list[i+=1]);
+                $('#imgC').attr("src", list[i += 1]);
                 clearInterval(timer);
                 speed = $('#speedC').val();
                 timer = setInterval(time, speed);
             }
-            
+
         };
-        
+        //button range
+        $('#speedC').click(function () {
+            clearInterval(timer);
+            speed = $('#speedC').val();
+            $('#speedT').html($('#speedC').val());
+            timer = setInterval(time, speed)
+        })
         //bouton random
-        $('#random').click(function(){
-            if(rand == false){
+        $('#random').click(function () {
+            if (rand == false) {
                 rand = true;
                 $(this).css('border', '2px solid red');
+                $('#repeat').prop("disabled", true);
             } else {
                 rand = false;
                 $(this).css('border', '');
+                $('#repeat').prop("disabled", false);
             }
         });
-
         //bouton repeat
-        $('#repeat').click(function(){
-            if(rep == false){
+        $('#repeat').click(function () {
+            if (rep == false) {
                 rep = true;
                 $(this).css('border', '2px solid red');
+                $('#random').prop("disabled", true);
             } else {
                 rep = false;
                 $(this).css('border', '');
+                $('#random').prop("disabled", false);
             }
         });
         // bouton pause
-        $('#pause').click(function(){
+        $('#pause').click(function () {
             clearInterval(timer);
+            $('#play').prop("disabled", false);
+            $('#pause').prop("disabled", true);
+            $('#next').prop("disabled", false);
+            $('#back').prop("disabled", false);
         });
         // bouton play
-        $('#play').click(function(){
+        $('#play').click(function () {
             speed = $('#speedC').val();
             timer = setInterval(time, speed);
+            $('#play').prop("disabled", true);
+            $('#pause').prop("disabled", false);
+            $('#next').prop("disabled", true);
+            $('#back').prop("disabled", true);
         });
-        
+
         // bouton next
         $('#next').click(function () {
-            if(i == 4) {
-                i=0;
+            if (i == 4) {
+                i = 0;
                 $('#imgC').attr("src", list[i]);
             } else {
-            $('#imgC').attr("src", list[i+=1]);
+                $('#imgC').attr("src", list[i += 1]);
             }
         });
         // bouton back
         $('#back').click(function () {
-            if(i == 0) {
-                i=4;
+            if (i == 0) {
+                i = 4;
                 $('#imgC').attr("src", list[i]);
             } else {
-            $('#imgC').attr("src", list[i-=1]);
+                $('#imgC').attr("src", list[i -= 1]);
             }
         });
 
