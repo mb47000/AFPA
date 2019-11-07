@@ -59,6 +59,8 @@
                 $('#imgC').attr("src", list[i]);
                 $('#play').prop("disabled", false);
                 $('#pause').prop("disabled", true);
+                $('#next').prop("disabled", false);
+                $('#back').prop("disabled", false);
                 clearInterval(timer);
             } else {
                 $('#imgC').attr("src", list[i += 1]);
