@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <title>min - max</title>
+</head>
+
+<body class="bg-info">
+    <div class="container mt-5">
+        <div class="card text-center">
+            <div class="card-header">
+                <div class="card-header">
+                    Min - Max
+                    <div class="input-group mt-2">
+                        <input type="text" class="form-control " placeholder="minimum-maximum" id="minMax">
+                        <input type="text" class="form-control" placeholder="maximum-maximum" id="maxMin">
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="input-group mt-2 col-12">
+                    <div class="input-group-prepend col-12">
+                        <input type="text" class="form-control bg-" placeholder="valeur 1" id="val1" disabled>
+                        <i id="ico" class="fas fa-balance-scale mt-2 ml-2 mr-2"></i>
+                        <input type="text" class="form-control" placeholder="valeur 2" id="val2" disabled>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <script src="https://gist-it.appspot.com/github/mb47000/AFPA-Exercices/blob/test/Exercices-11-12-2019-Code/min-max.html"></script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+        </script>
+        <script>
+            $(function () {
+                var verif1,
+                    verif2,
+                    verif3;
+
+                $('#minMax,#maxMin').keyup(function () {
+                    verif1 = parseInt($('#minMax').val()) < parseInt($('#maxMin').val()) || parseInt($(
+                        '#minMax').val()) > parseInt($('#maxMin').val());
+                    verif1 ? $('#val1, #val2').prop("disabled", false).css("border", "1px solid blue") :
+                        $('#val1, #val2').prop("disabled", true).css("border", "");
+                        $('#val1, #val2').val('');
+                        $('#ico').removeClass('fa-greater-than fa-less-than fa-equals');
+                        $('#ico').addClass('fa-balance-scale');
+                });
+
+                function maxmin(value1, value2) {
+                    var ret1;
+                    (value1 > value2) ? ret1 = [value1, value2]: ret1 = [value2, value1];
+                    return ret1
+                };
+
+                $('#val1,#val2').keyup(function () {
+                    if (!($('#val1').val() == "" || $('#val2').val() == "")) {
+                        verif2 = maxmin((parseInt($('#minMax').val())), parseInt($('#maxMin').val()))[
+                            0] >= maxmin(parseInt($('#val1').val()), parseInt($('#val2').val()))[0];
+                    } else {
+                        ;
+                    }
+                    if (!($('#val1').val() == "" || $('#val2').val() == "")) {
+                        verif3 = maxmin((parseInt($('#minMax').val())), parseInt($('#maxMin').val()))[
+                            1] <= maxmin(parseInt($('#val1').val()), parseInt($('#val2').val()))[1];
+                    } else {
+                        ;
+                    }
+                    if (verif2 && verif3) {
+                        $('#val1, #val2').css("border", "3px solid green");
+                        if (parseInt($('#val1').val()) == parseInt($('#val2').val())) {
+                            $('#ico').removeClass('fa-balance-scale fa-greater-than fa-less-than');
+                            $('#ico').addClass('fa-equals');
+                        } else if (parseInt($('#val1').val()) > parseInt($('#val2').val())) {
+                            $('#ico').removeClass('fa-balance-scale  fa-less-than fa-equals');
+                            $('#ico').addClass('fa-greater-than');
+                        } else if (parseInt($('#val1').val()) < parseInt($('#val2').val())) {
+                            $('#ico').removeClass('fa-balance-scale fa-greater-than  fa-equals');
+                            $('#ico').addClass('fa-less-than');
+                        } else {
+                            ;
+                        }
+                    } else {
+                        $('#val1, #val2').css("border", "1px solid red");
+                        $('#ico').removeClass('fa-greater-than fa-less-than fa-equals');
+                        $('#ico').addClass('fa-balance-scale');
+                    }
+                    // fa-greater-than fa-less-than
+                });
+
+
+            });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

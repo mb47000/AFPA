@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="date" id="birth-day" value="1989-02-20" min="1950-01-01" max="2000-12-31">
+    <button id="start">ok</button>
+    <div>
+        <span>Année de naissance: </span><span id="annee"></span><br />
+        <span>Mois de naissance: </span><span id="mois"></span> <span id="mois1"></span><br />
+        <span>Jour de naissance: </span><span id="jour"></span> <span id="jourl"></span><br />
+        <span>Age: </span><span id="age1"></span><br />
+        <span>Jour de l'année : </span><span id="jourA"></span><br />
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            var jours = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+            var moisL = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"]
+            $('#start').click(function () {
+                var age;
+                var birth = $('#birth-day').val();
+                var birthS = birth.split('-');
+                var date = new Date(birthS[0], birthS[1] - 1, birthS[2]);
+                var datetoday = new Date;
+                var ageYear = (datetoday.getFullYear() - date.getFullYear());
+                var ageMonth = (datetoday.getMonth() - date.getMonth());
+                $('#jourA').html((date - (new Date(birthS[0], 00, 00))) / (24 * 3600 *1000));
+                $('#annee').html(birthS[0]);
+                $('#mois').html(birthS[1]);
+                $('#jour').html(birthS[2]);
+                $('#jourl').html(jours[date.getDay()]);
+                $('#mois1').html(moisL[date.getMonth()]);
+                ageMonth < 0 ? age = ageYear - 1 : age = ageYear;
+                $('#age1').html(age + "ans");
+                
+            });
+
+        });
+    </script>
+    <script src="http://gist-it.appspot.com/github/mb47000/AFPA-Exercices/blob/test/Exercices-11-12-2019-Code/date.html"></script>
+</body>
+
+</html>
