@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <div id="carrou">
+            <div class="flip-box">
+                <div class="flip-box-inner">
+                    <div class="flip-box-front">
+                        <img id="imgF1" src="" alt="">
+                    </div>
+                    <div class="flip-box-back">
+                        <img id="imgF2" src="" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="button">
+            <input type="button" value="play" id="play" disabled>
+            <input type="button" value="pause" id="pause">
+            <input type="button" value="back" id="back" disabled>
+            <input type="button" value="next" id="next" disabled>
+            <input type="button" value="repeat" id="repeat">
+            <input type="button" value="random" id="random">
+            <input type="range" min="1000" max="10000" value="2000" id="speedC"><span id="speedT"></span>
+        </div>
+
+    </main>
+    <script
+        src="https://gist-it.appspot.com/github/mb47000/AFPA-Exercices/blob/test/Exercices-11-06-2019-Carrousel/index.html">
+    </script>
+    <script
+        src="https://gist-it.appspot.com/github/mb47000/AFPA-Exercices/blob/test/Exercices-11-06-2019-Carrousel/style.css">
+    </script>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        var list = ['image/1.png', 'image/2.png', 'image/3.png', 'image/4.png', 'image/5.png'];
+        var i = 0;
+        var c = 0;
+        var rep = false;
+        var rand = false;
+        var add;
+        var speed = $('#speedC').val();
+        var fronts = true;
+        var rotation = "rotateY(000deg)";
+        var timer = setInterval(time, speed);
+        $('#imgF1').attr("src", list[i]);
+        $('#speedT').html($('#speedC').val());
+        // function carrousel
+        function time() {
+            $('#speedT').html($('#speedC').val());
+            if (rand == true) {
+                i = Math.floor(Math.random() * 5);
+                c = Math.floor(Math.random() * 5);
+                if ((rotation == "rotateY(000deg)" || rotation == "rotateY(0deg)" || rotation ==
+                        "rotateY(360deg)") && fronts == true) {
+                    $('#imgF2').attr("src", list[c]);
+                    add = parseInt(rotation[8] + rotation[9] + rotation[10]) + 180;
+                    rotation = 'rotateY(' + (add) + 'deg)';
+                    $('.flip-box .flip-box-inner').css('transform', rotation);
+                } else if ((rotation == "rotateY(180deg)" || rotation == "rotateY(540deg)") && fronts == true) {
+                    $('#imgF1').attr("src", list[i]);
+                    add = parseInt(rotation[8] + rotation[9] + rotation[10]) + 180;
+                    rotation = 'rotateY(' + (add) + 'deg)';
+                    $('.flip-box .flip-box-inner').css('transform', rotation);
+                } else if (rotation == "rotateY(720deg)") {
+                    fronts = false;
+                    $('#imgF2').attr("src", list[c]);
+                    add = parseInt(rotation[8] + rotation[9] + rotation[10] + rotation[11]) - 180;
+                    rotation = 'rotateY(' + (add) + 'deg)';
+                    $('.flip-box .flip-box-inner').css('transform', rotation);
+                } else if (rotation == "rotateY(540deg)") {
+                    $('#imgF1').attr("src", list[1]);
+                    add = parseInt(rotation[8] + rotation[9] + rotation[10] + rotation[11]) - 180;
+                    rotation = 'rotateY(' + (add) + 'deg)';
+                    $('.flip-box .flip-box-inner').css('transform', rotation);
+                } else if (rotation == "rotateY(360deg)") {
+                    $('#imgF2').attr("src", list[c]);
+                    add = parseInt(rotation[8] + rotation[9] + rotation[10] + rotation[11]) - 180;
+                    rotation = 'rotateY(' + (add) + 'deg)';
+                    $('.flip-box .flip-box-inner').css('transform', rotation);
+                } else if (rotation == "rotateY(180deg)") {
+                    $('#imgF1').attr("src", list[i]);
+                    add = parseInt(rotation[8] + rotation[9] + rotation[10] + rotation[11]) - 180;
+                    rotation = 'rotateY(' + (add) + 'deg)';
+                    $('.flip-box .flip-box-inner').css('transform', rotation);
+                    fronts = true;
+                }
+            } else if (rep == true && rotation == "rotateY(720deg)") {
+                c = 0;
+                i = 0;
+                $('#imgF1').attr("src", list[i]);
+                add = 000;
+                rotation = 'rotateY(' + (add) + 'deg)';
+                $('.flip-box .flip-box-inner').css('transform', rotation);
+            } else if (i == 4) {
+                clearInterval(timer);
+                $('#imgC').attr("src", list[i]);
+                $('#play').prop("disabled", false);
+                $('#pause').prop("disabled", true);
+                $('#next').prop("disabled", false);
+                $('#back').prop("disabled", false);
+            } else if (c == 0) {
+                $('#imgF2').attr("src", list[c += 1]);
+                add = parseInt(rotation[8] + rotation[9] + rotation[10]) + 180;
+                rotation = 'rotateY(' + (add) + 'deg)';
+                $('.flip-box .flip-box-inner').css('transform', rotation);
+            } else if (c > i) {
+                $('#imgF1').attr("src", list[i += 2]);
+                add = parseInt(rotation[8] + rotation[9] + rotation[10]) + 180;
+                rotation = 'rotateY(' + (add) + 'deg)';
+                $('.flip-box .flip-box-inner').css('transform', rotation);
+            } else if (c < i) {
+                $('#imgF2').attr("src", list[c += 2]);
+                add = parseInt(rotation[8] + rotation[9] + rotation[10]) + 180;
+                rotation = 'rotateY(' + (add) + 'deg)';
+                $('.flip-box .flip-box-inner').css('transform', rotation);
+            }
+            console.log(rotation)
+        };
+
+        //button range
+        $('#speedC').click(function () {
+            clearInterval(timer);
+            speed = $('#speedC').val();
+            $('#speedT').html($('#speedC').val());
+            timer = setInterval(time, speed)
+        })
+
+        // bouton back
+        $('#back').click(function () {
+            if (rotation == "rotateY(000deg)" || rotation == "rotateY(0deg)") {
+                c = 3;
+                i = 4;
+                $('#imgF1').attr("src", list[i]);
+                add = 720;
+                rotation = 'rotateY(' + (add) + 'deg)';
+                $('.flip-box .flip-box-inner').css('transform', rotation);
+            } else if (c == 3 && i == 4) {
+                $('#imgF2').attr("src", list[c]);
+                i -= 2;
+                add = parseInt(rotation[8] + rotation[9] + rotation[10] + rotation[11]) - 180;
+                rotation = 'rotateY(' + (add) + 'deg)';
+                $('.flip-box .flip-box-inner').css('transform', rotation);
+            } else if (c == 3 && i == 2) {
+                $('#imgF1').attr("src", list[i]);
+                c -= 2;
+                add = parseInt(rotation[8] + rotation[9] + rotation[10] + rotation[11]) - 180;
+                rotation = 'rotateY(' + (add) + 'deg)';
+                $('.flip-box .flip-box-inner').css('transform', rotation);
+            } else if (c == 1 && i == 2) {
+                $('#imgF2').attr("src", list[c]);
+                i -= 2;
+                add = parseInt(rotation[8] + rotation[9] + rotation[10] + rotation[11]) - 180;
+                rotation = 'rotateY(' + (add) + 'deg)';
+                $('.flip-box .flip-box-inner').css('transform', rotation);
+            } else if (c == 1 && i == 0) {
+                $('#imgF1').attr("src", list[i]);
+                c = -1;
+                add = parseInt(rotation[8] + rotation[9] + rotation[10] + rotation[11]) - 180;
+                rotation = 'rotateY(' + (add) + 'deg)';
+                $('.flip-box .flip-box-inner').css('transform', rotation);
+            }
+        });
+
+        // bouton next
+        $('#next').click(function () {
+            if (rotation == "rotateY(720deg)") {
+                c = 0;
+                i = 0;
+                $('#imgF1').attr("src", list[i]);
+                add = 000;
+                rotation = 'rotateY(' + (add) + 'deg)';
+                $('.flip-box .flip-box-inner').css('transform', rotation);
+            } else if ((i || c) == 0) {
+                $('#imgF2').attr("src", list[c += 1]);
+                add = parseInt(rotation[8] + rotation[9] + rotation[10]) + 180;
+                rotation = 'rotateY(' + (add) + 'deg)';
+                $('.flip-box .flip-box-inner').css('transform', rotation);
+            } else if (c > i) {
+                $('#imgF1').attr("src", list[i += 2]);
+                add = parseInt(rotation[8] + rotation[9] + rotation[10]) + 180;
+                rotation = 'rotateY(' + (add) + 'deg)';
+                $('.flip-box .flip-box-inner').css('transform', rotation);
+            } else if (c < i) {
+                $('#imgF2').attr("src", list[c += 2]);
+                add = parseInt(rotation[8] + rotation[9] + rotation[10]) + 180;
+                rotation = 'rotateY(' + (add) + 'deg)';
+                $('.flip-box .flip-box-inner').css('transform', rotation);
+            }
+        });
+
+        //bouton repeat
+        $('#repeat').click(function () {
+            if (rep == false) {
+                rep = true;
+                $(this).css('border', '2px solid red');
+                $('#random').prop("disabled", true);
+            } else {
+                rep = false;
+                $(this).css('border', '');
+                $('#random').prop("disabled", false);
+            }
+        });
+
+        //bouton random
+        $('#random').click(function () {
+            if (rand == false) {
+                rand = true;
+                $(this).css('border', '2px solid red');
+                $('#repeat').prop("disabled", true);
+                $('#next').prop("disabled", true);
+                $('#back').prop("disabled", true);
+            } else {
+                rand = false;
+                $(this).css('border', '');
+                $('#repeat').prop("disabled", false);
+                c = 0;
+                i = 0;
+                $('#imgF1').attr("src", list[i]);
+                add = 000;
+                rotation = 'rotateY(' + (add) + 'deg)';
+                $('.flip-box .flip-box-inner').css('transform', rotation);
+                if ($('#pause').prop("disabled") == true) {
+                    $('#next').prop("disabled", false);
+                    $('#back').prop("disabled", false);
+                }
+            }
+        });
+        // bouton pause
+        $('#pause').click(function () {
+            clearInterval(timer);
+            if (rand == false) {
+                $('#play').prop("disabled", false);
+                $('#pause').prop("disabled", true);
+                $('#next').prop("disabled", false);
+                $('#back').prop("disabled", false);
+            } else {
+                $('#play').prop("disabled", false);
+                $('#pause').prop("disabled", true);
+                $('#next').prop("disabled", true);
+                $('#back').prop("disabled", true);
+            }
+        });
+        // bouton play
+        $('#play').click(function () {
+            clearInterval(timer);
+            timer = setInterval(time, speed);
+            $('#play').prop("disabled", true);
+            $('#pause').prop("disabled", false);
+            $('#next').prop("disabled", true);
+            $('#back').prop("disabled", true);
+            if (i == 4) {
+                c = 0;
+                i = 0;
+                $('#imgF1').attr("src", list[i]);
+                add = 000;
+                rotation = 'rotateY(' + (add) + 'deg)';
+                $('.flip-box .flip-box-inner').css('transform', rotation);
+            }
+        });
+
+
+
+
+    });
+</script>
+
+</html>
